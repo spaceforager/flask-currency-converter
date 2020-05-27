@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} Converted Forex {% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<p>{{amount}} converted from {{conv_from}} to {{conv_to}} equals {{converted_amt}}</p>
+
+<a href="/">Home</a>
+
+{% endblock %}
