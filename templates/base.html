@@ -7,7 +7,62 @@
 </head>
 <body>
 
+    
+
     {% block content %} {% endblock %}
+    
+    {% with errors = get_flashed_messages(category_filter=["error_same"]) %}
+    {% if errors %}
+    <div class="alert-message block-message error">
+      
+      <ul>
+        {%- for msg in errors %}
+        <li>{{ msg }}</li>
+        {% endfor -%}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with errors = get_flashed_messages(category_filter=["error_amt"]) %}
+    {% if errors %}
+    <div class="alert-message block-message error">
+      
+      <ul>
+        {%- for msg in errors %}
+        <li>{{ msg }}</li>
+        {% endfor -%}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with errors = get_flashed_messages(category_filter=["error_conv_from"]) %}
+    {% if errors %}
+    <div class="alert-message block-message error">
+      
+      <ul>
+        {%- for msg in errors %}
+        <li>{{ msg }} {{conv_from_err}}</li>
+        {% endfor -%}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    {% with errors = get_flashed_messages(category_filter=["error_conv_to"]) %}
+    {% if errors %}
+    <div class="alert-message block-message error">
+      
+      <ul>
+        {%- for msg in errors %}
+        <li>{{ msg }} {{conv_to_err}}</li>
+        {% endfor -%}
+      </ul>
+    </div>
+    {% endif %}
+    {% endwith %}
+    
     
 </body>
 </html>
